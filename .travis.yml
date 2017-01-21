@@ -11,8 +11,12 @@ env:
 before_install:
   # update homebrew and install dependencies
   - brew update
-  - brew install dpkg ldid
-  
+  - brew install ldid
+  - cd /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core  # cd to the formulae repo
+  - git checkout 7a4dabf  # checkout the commit before dpkg was updated
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install dpkg  # install the older dpkg
+  - git checkout master  # checkout the latest commit again
+  - brew pin dpkg 
   # install theos
   - git clone --recursive git://github.com/theos/theos.git ~/theos
 
