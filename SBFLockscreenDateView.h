@@ -5,7 +5,7 @@
     BOOL _isInternalBattery;
 
 }
-- (id)initWithFrame:(CGRect)arg1 isInternalBattery:(BOOL)arg2 lowBatteryLevel:(long long)arg3;
+- (SBLockScreenBatteryFillView *)initWithFrame:(CGRect)arg1 isInternalBattery:(BOOL)arg2 lowBatteryLevel:(long long)arg3;
 - (void)setChargePercentage:(long long)arg1;
 - (void)drawRect:(CGRect)arg1;
 @end
@@ -25,16 +25,15 @@
 @property (assign, nonatomic) double minFillHeight;
 @end
 
+
 @interface SBFLockScreenDateView : UIView {
     SBUILegibilityLabel *_timeLabel;
 }
 @property (assign, nonatomic) double alignmentPercent;
 @property (nonatomic, retain) _UILegibilitySettings *legibilitySettings;
+@property (nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
+
 - (void)setLegibilitySettings:(_UILegibilitySettings *)settings;
 - (void)setTextColor:(UIColor *)color;
 - (void)_updateLabels;
-@end
-
-@interface SBFLockScreenDateView (MLS)
-@property (nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
 @end
