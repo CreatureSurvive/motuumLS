@@ -31,7 +31,7 @@
 }
 @property (assign, nonatomic) double alignmentPercent;
 @property (nonatomic, retain) _UILegibilitySettings *legibilitySettings;
-@property (nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
+// @property (nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
 
 - (void)setLegibilitySettings:(_UILegibilitySettings *)settings;
 - (void)setTextColor:(UIColor *)color;

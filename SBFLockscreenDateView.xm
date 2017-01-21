@@ -2,9 +2,9 @@
 
 %hook SBFLockScreenDateView
 
-%property(nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
+// %property(nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
 
-- (void)setAlignmentPercent:(CGFloat)percent {
+- (void)setAlignmentPercent: (CGFloat)percent {
     %orig(1);
 }
 
@@ -22,9 +22,25 @@
 
 - (id)initWithFrame:(CGRect)frame {
     self = %orig;
-    self.batteryView = [[SBLockScreenBatteryFillView alloc] initWithFrame:CGRectMake(20, 20, 80, 120) isInternalBattery:YES lowBatteryLevel:20];
+    // SBLockScreenBatteryFillView *batteryView = [[SBLockScreenBatteryFillView alloc] initWithFrame:CGRectMake(20, 20, 80, 120) isInternalBattery:YES lowBatteryLevel:20];
     [self.legibilitySettings setPrimaryColor:[UIColor cyanColor]];
-    [self insertSubview:self.batteryView atIndex:0];
+    // [self insertSubview:batteryView atIndex:0];
+
+    // make the battery view
+    UIView *backgroundImg = [[UIView alloc] initWithFrame:CGRectMake(18, 18, 84, 104)];
+    UIView *fillView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 80, 100)];
+
+    backgroundImg.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.45];
+    fillView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0.1 alpha:0.75];
+
+    backgroundImg.layer.cornerRadius = 7;
+    fillView.layer.cornerRadius = 7;
+
+    backgroundImg.clipsToBounds = YES;
+    fillView.clipsToBounds = YES;
+
+    [self insertSubview:fillView atIndex:0];
+    [self insertSubview:backgroundImg atIndex:0];
 
     return self;
 }

@@ -1,0 +1,11 @@
+Package: com.creaturesurvive.motuumls
+Name: motuumLS
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: CreatureSurvive <dbuehre@me.com>
+Depiction: https://creaturesurvive.com/depictions/com.creaturesurvive.motuumls/index.htmls
+Author: CreatureSurvive <dbuehre@me.com>
+Section: Tweaks
+Version: 0.0.1-23+debug
+Installed-Size: 76
