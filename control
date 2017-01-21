@@ -3,8 +3,8 @@ Name: motuumLS
 Depends: mobilesubstrate
 Version: 0.0.1
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Customize your lockscreen your way!
 Maintainer: CreatureSurvive <dbuehre@me.com>
-Depiction: https://creaturesurvive.com/depictions/com.creaturesurvive.motuumls/index.htmls
+Depiction: Just starting to update sera for ios 10
 Author: CreatureSurvive <dbuehre@me.com>
 Section: Tweaks
