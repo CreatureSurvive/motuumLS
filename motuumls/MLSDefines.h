@@ -1,0 +1,6 @@
+#define MainTint_Color [UIColor colorWithRed:0.25 green:0.25 blue:0.30 alpha:1.0]
+#define Controls_Color [UIColor colorWithRed:0.25 green:0.25 blue:0.30 alpha:1.0]
+#define NavBackground_Color [UIColor colorWithRed:0.25 green:0.25 blue:0.30 alpha:1.0]
+#define NavText_Color [UIColor colorWithRed:0.73 green:0.73 blue:0.74 alpha:1.0]
+#define HeaderMainText_Color [UIColor colorWithRed:0.25 green:0.25 blue:0.30 alpha:1.0]
+#define HeaderSubText_Color [UIColor colorWithRed:0.25 green:0.25 blue:0.30 alpha:0.450]

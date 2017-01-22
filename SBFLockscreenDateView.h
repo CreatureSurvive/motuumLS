@@ -1,5 +1,5 @@
 #import "MLSBatteryIndicatorView.h"
-
+#import "MLSPrefsController.h"
 
 @interface SBUILegibilityLabel : UIView
 @property (nonatomic, copy) UIColor *textColor;
