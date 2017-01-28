@@ -32,7 +32,8 @@
                               @"kMLSEnabled" :@"YES",
                               @"kMLSDateViewBatteryEnabled" :@"YES",
                               @"kMLSDateViewAlignmentX" :@"0.5",
-                              @"kMLSDateViewBatteryAlignmentX" :@"0"
+                              @"kMLSDateViewBatteryAlignmentX" :@"0",
+                              @"kMLSDateViewIsVibrant" :@"NO"
                           }]];
 
     [self.preferences writeToFile:_plistfile atomically:YES];

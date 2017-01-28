@@ -1,10 +1,10 @@
 Package: com.creaturesurvive.motuumls
 Name: motuumLS
 Depends: mobilesubstrate
-Version: 0.0.2
+Version: 0.0.7
 Architecture: iphoneos-arm
 Description: Customize your lockscreen your way!
 Maintainer: CreatureSurvive <dbuehre@me.com>
-Depiction: Just starting to update sera for ios 10
+Depiction: https://creaturesurvive.github.io/depictions/com.creaturecoding.sera/index.html
 Author: CreatureSurvive <dbuehre@me.com>
 Section: Tweaks

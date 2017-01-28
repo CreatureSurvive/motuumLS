@@ -24,6 +24,20 @@
 			<key>defaults</key>
 			<string>com.creaturesurvive.motuumls</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Vibrant Date Labels</string>
+			<key>key</key>
+			<string>kMLSDateViewIsVibrant</string>
+			<key>default</key>
+			<false/>
+			<key>PostNotification</key>
+			<string>com.creaturesurvive.motuumls.prefschanged</string>
+			<key>defaults</key>
+			<string>com.creaturesurvive.motuumls</string>
+		</dict>
 		<!--<dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>

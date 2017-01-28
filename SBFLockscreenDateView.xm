@@ -13,6 +13,14 @@
     %orig(percent);
 }
 
+- (void)setContentAlpha:(double)alpha withSubtitleVisible:(BOOL)subtitle {
+    %orig(alpha, subtitle);
+
+    if (self.batteryView) {
+        [self.batteryView setAlpha:alpha];
+    }
+}
+
 // - (_UILegibilitySettings *)legibilitySettings {
 //     _UILegibilitySettings *settings = %orig;
 //     [settings setPrimaryColor:[UIColor cyanColor]];

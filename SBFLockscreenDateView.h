@@ -39,4 +39,5 @@
 - (void)setLegibilitySettings:(_UILegibilitySettings *)settings;
 - (void)setTextColor:(UIColor *)color;
 - (void)_updateLabels;
+- (void)setContentAlpha:(double)alpha withSubtitleVisible:(BOOL)subtitle;
 @end
