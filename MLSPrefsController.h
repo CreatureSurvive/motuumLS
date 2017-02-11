@@ -2,6 +2,7 @@
 // Created by Dana Buehre on 1/22/17.
 // Copyright (c) 2017 CreatureSurvive. All rights reserved.
 //
+#import "3rdParty/ColorPicker.h"
 
 #define _plistfile (@"/User/Library/Preferences/com.creaturesurvive.motuumls.plist")
 #define _prefsChanged "com.creaturesurvive.motuumls.prefschanged"
@@ -13,6 +14,7 @@
 @interface MLSPrefsController : NSObject
 @property (nonatomic, retain) NSMutableDictionary *preferences;
 + (instancetype)sharedInstance;
+- (UIColor *)colorForKey:(NSString *)key;
 - (double)doubleForKey:(NSString *)key;
 - (float)floatForKey:(NSString *)key;
 - (BOOL)boolForKey:(NSString *)key;

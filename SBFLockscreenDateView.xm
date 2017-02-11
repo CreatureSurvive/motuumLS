@@ -1,18 +1,22 @@
 #import "SBFLockScreenDateView.h"
 
+// CGFloat alignmentPercent;
 %hook SBFLockScreenDateView
 
-// %property(nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
+//adds a property for batteryView
 %property(nonatomic, retain) MLSBatteryIndicatorView *batteryView;
 
-
+// sets the dateview horizontal alignment
 - (void)setAlignmentPercent:(CGFloat)percent {
+    // alignmentPercent = percent;
+
     if ([[MLSPrefsController sharedInstance] boolForKey:@"kMLSEnabled"]) {
         percent = [[MLSPrefsController sharedInstance] floatForKey:@"kMLSDateViewAlignmentX"];
     }
     %orig(percent);
 }
 
+// sets the batteryview alpha with the dateview alpha
 - (void)setContentAlpha:(double)alpha withSubtitleVisible:(BOOL)subtitle {
     %orig(alpha, subtitle);
 
@@ -21,28 +25,25 @@
     }
 }
 
-// - (_UILegibilitySettings *)legibilitySettings {
-//     _UILegibilitySettings *settings = %orig;
-//     [settings setPrimaryColor:[UIColor cyanColor]];
+// sets the legebility settings color
+- (void)setLegibilitySettings:(_UILegibilitySettings *)settings {
+    [settings setPrimaryColor:[[MLSPrefsController sharedInstance] colorForKey:@"kMLSPrimaryLegibilityColor"]];
+    %orig(settings);
+}
 
-//     return settings;
-// }
-
-// - (void)setLegibilitySettings:(_UILegibilitySettings *)settings {
-//     [settings setPrimaryColor:[UIColor cyanColor]];
-//     %orig(settings);
-// }
-
-// - (id)initWithFrame:(CGRect)frame {
-//     self = %orig;
-//     // [self.legibilitySettings setPrimaryColor:[UIColor cyanColor]];
-
-//     return self;
+// sets the dateview frame
+// - (void)setFrame:(CGRect)frame {
+//     if (alignmentPercent < 0) {
+//         %orig(CGRectMake(frame.origin.x, 20, frame.size.width, frame.size.height));
+//     } else {
+//         %orig(frame);
+//     }
 // }
 
 - (void)layoutSubviews {
     %orig;
     if ([[MLSPrefsController sharedInstance] boolForKey:@"kMLSEnabled"] && [[MLSPrefsController sharedInstance] boolForKey:@"kMLSDateViewBatteryEnabled"]) {
+        // creates the batteryView
         if (!self.batteryView) {
             // self.batteryView = [[SBLockScreenBatteryFillView alloc] initWithFrame:CGRectMake(0, 25, 55, 100) isInternalBattery:YES lowBatteryLevel:20];
             self.batteryView = [[MLSBatteryIndicatorView alloc] initWithFrame:CGRectMake(

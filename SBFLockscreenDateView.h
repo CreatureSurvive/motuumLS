@@ -1,5 +1,6 @@
 #import "MLSBatteryIndicatorView.h"
 #import "MLSPrefsController.h"
+#import <UIKit/UIKit.h>
 
 @interface SBUILegibilityLabel : UIView
 @property (nonatomic, copy) UIColor *textColor;
@@ -28,6 +29,7 @@
 - (void)drawRect:(CGRect)arg1;
 @end
 
+@class _UILegibilitySettings;
 @interface SBFLockScreenDateView : UIView {
     SBUILegibilityLabel *_timeLabel;
 }
@@ -35,7 +37,7 @@
 @property (nonatomic, retain) _UILegibilitySettings *legibilitySettings;
 // @property (nonatomic, retain) SBLockScreenBatteryFillView *batteryView;
 @property (nonatomic, retain) MLSBatteryIndicatorView *batteryView;
-
+- (void)setFrame:(CGRect)frame;
 - (void)setLegibilitySettings:(_UILegibilitySettings *)settings;
 - (void)setTextColor:(UIColor *)color;
 - (void)_updateLabels;

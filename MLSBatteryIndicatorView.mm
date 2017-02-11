@@ -10,18 +10,11 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        //// enable battery monitoring
-        // [[UIDevice currentDevice] setBatteryMonitoringEnabled: YES];
 
         //// steup the charging image
         self.batteryChargingView = [[UIImageView alloc] initWithImage:self.imageForBatteryLevel];
         [self insertSubview: self.batteryChargingView atIndex : 0];
 
-        //// register for battery state notifications
-//         [[NSNotificationCenter defaultCenter] addObserver: self
-// selector: @selector(batteryLevelUpdate)
-// name:    UIDeviceBatteryLevelDidChangeNotification
-// object:  nil];
     }
     return self;
 }
@@ -39,14 +32,17 @@
 }
 
 - (UIImage *)imageForBatteryLevel {
+    //cache the prefs controller
+    MLSPrefsController *prefsController = [MLSPrefsController sharedInstance];
 
     float level = [self batteryLevel];
     CGSize batteryTipSize = CGSizeMake(self.bounds.size.width * 0.371428571429, self.bounds.size.height * 0.0540540540541);
 
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+
     //// Color Declarations
-    UIColor *fillColor = (level > 0.2) ? [UIColor colorWithRed : 0 green : 1 blue : 0 alpha:0.55] : [UIColor colorWithRed : 1 green: 0.633 blue : 0 alpha: 0.55];
-    UIColor *bgColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 0.45];
+    UIColor *fillColor = (level > 0.2) ? [prefsController colorForKey : @ "kMLSBatteryFillColorNormal"] : [prefsController colorForKey:@ "kMLSBatteryFillColorLow"];
+    UIColor *bgColor = [prefsController colorForKey:@ "kMLSBatteryBackgroundColor"];
 
     //// Rect Declarations
     CGRect bounds = self.bounds;
@@ -77,8 +73,4 @@
 
     return batteryImage;
 }
-
-// - (void)dealloc {
-//     [[NSNotificationCenter defaultCenter] removeObserver: self];
-// }
 @end

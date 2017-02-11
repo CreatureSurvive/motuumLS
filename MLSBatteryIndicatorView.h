@@ -5,6 +5,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/NSObjCRuntime.h>
+#import "MLSPrefsController.h"
 
 @interface MLSBatteryIndicatorView : UIView
 @property (nonatomic, retain) UIImageView *batteryChargingView;

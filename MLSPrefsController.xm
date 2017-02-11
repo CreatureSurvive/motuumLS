@@ -33,7 +33,14 @@
                               @"kMLSDateViewBatteryEnabled" :@"YES",
                               @"kMLSDateViewAlignmentX" :@"0.5",
                               @"kMLSDateViewBatteryAlignmentX" :@"0",
-                              @"kMLSDateViewIsVibrant" :@"NO"
+                              @"kMLSDateViewIsVibrant" :@"NO",
+                              @"kMLSCallToActionLabelDisabled" :@"NO",
+                              @"kMLSBatteryFillColorNormal" :@"#4CD964:0.600000",
+                              @"kMLSBatteryFillColorLow" :@"#FFCC00:0.600000",
+                              @"kMLSBatteryBackgroundColor" :@"#C7C7CC:0.600000",
+                              @"kMLSPrimaryLegibilityColor" :@"#FFFFFF",
+                              @"kMLSMediaControlsSecondaryColor" :@"FFFFFF",
+                              @"kMLSMediaControlsPrimaryColor" :@"FFFFFF"
                           }]];
 
     [self.preferences writeToFile:_plistfile atomically:YES];
@@ -49,6 +56,10 @@
 
 - (BOOL)boolForKey:(NSString *)key {
     return self.preferences[key] ? [self.preferences[key] boolValue] : NO;
+}
+
+- (UIColor *)colorForKey:(NSString *)key {
+    return LCPParseColorString(self.preferences[key], @"#FFFFFF");
 }
 
 static void TweakReceivedNotificationToReloadSettings(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo){

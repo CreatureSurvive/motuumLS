@@ -166,6 +166,9 @@
     NSString *post = [specifier propertyForKey:@"PostNotification"];
     if (post) {
         CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (__bridge CFStringRef)post, NULL, NULL, TRUE);
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"MLSPrefsDidUpdate"
+                       object:nil];
     }
 }
 
