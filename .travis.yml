@@ -11,9 +11,9 @@ env:
 before_install:
   # update homebrew and install dependencies
   - brew update
-  - brew install ldid
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/9e6d049c0d22824a4eedddf6f9d471b5ca2c5283/Formula/dpkg.rb  # install the older dpkg
-  - brew pin dpkg 
+  - brew install ldid dpkg
+  # - HOMEBREW_NO_AUTO_UPDATE=1 brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/9e6d049c0d22824a4eedddf6f9d471b5ca2c5283/Formula/dpkg.rb  # install the older dpkg
+  # - brew pin dpkg 
   # install theos
   - git clone --recursive git://github.com/theos/theos.git ~/theos
 
